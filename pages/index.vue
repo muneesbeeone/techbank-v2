@@ -44,7 +44,7 @@
         </div>
         <div class="flex text-block flex-col items-start">
             <h2 ref="aboutRef" data-final-text="About"
-                class="text-[40px] text-[#FFFFFF] scramble-header font-bold mb-4 font-nyx tracking-wider leading-[102px]">
+                class="md:text-[40px] text-2xl text-[#FFFFFF] scramble-header font-bold mb-4 font-nyx tracking-wider leading-[102px]">
                 About</h2>
             <p class="text-[16px] text-[#8D8D8D] font-ninetea text-start max-w-2xl mb-10">TechBank is a blockchain
                 product company creating decentralized tools like TechBank, Dbank, and Dwallet to simplify digital
@@ -52,15 +52,15 @@
                 the Web3 world.</p>
             <div class="flex divide-x divide-[#C0C0C03D]">
                 <div class="pr-8">
-                    <h3 class="font-nyx text-3xl">4</h3>
+                    <h3 class="font-nyx md:text-3xl text-xl">4</h3>
                     <p class="font-ninetea text-base text-[#C0C0C0]">Products</p>
                 </div>
                 <div class="px-8">
-                    <h3 class="font-nyx text-3xl">2000+</h3>
+                    <h3 class="font-nyx md:text-3xl text-xl">2000+</h3>
                     <p class="font-ninetea text-base text-[#C0C0C0]">Active Users</p>
                 </div>
                 <div class="pl-8">
-                    <h3 class="font-nyx text-3xl">1M+</h3>
+                    <h3 class="font-nyx md:text-3xl text-xl">1M+</h3>
                     <p class="font-ninetea text-base text-[#C0C0C0]">Downloads</p>
                 </div>
             </div>
@@ -82,21 +82,69 @@
             <div class="text-center">
                 <p class="text-[16px] text-[#BB83FF] mx-auto font-ninetea text-center max-w-2xl">Innovative</p>
                 <h2 ref="productsRef" data-final-text="Products"
-                    class="text-[40px] text-[#FFFFFF] scramble-header mx-auto -mt-5 font-nyx tracking-wider leading-[102px]">
+                    class="md:text-[40px] text-2xl text-[#FFFFFF] scramble-header mx-auto -mt-5 font-nyx tracking-wider leading-[102px]">
                     Products
                 </h2>
                 <p class="text-[16px] text-[#8D8D8D] -mt-5 font-ninetea mx-auto max-w-2xl mb-10">Explore our innovative
                     products
                     designed to simplify your digital finance experience.</p>
             </div>
-            <ProducSwiper />
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
+                <!-- <ProductSwiper /> -->
+                <div class="relative overflow-hidden rounded-lg h-fit w-full shadow-lg">
+            <img src="/images/product-card.webp" alt="DWallet product card background" width="100%" height="100%"
+              class="w-full h-auto object-cover rounded-lg shadow-lg" loading="eager" />
+            <div class="absolute h-full inset-0 p-1 z-10 text-white">
+              <img src="/images/dwallethome.webp" alt="DWallet - Decentralized Wallet Interface" width="100%" height="100%"
+                class="w-full object-cover rounded-lg shadow-lg" loading="eager" />
+              <div class="flex items-center justify-between relative w-full md:py-10 py-2 px-3">
+                <div class="">
+                  <h2 class="md:text-4xl text-xl tracking-wide font-nyx">DWALLET</h2>
+                  <p class="md:text-base text-xs font-ninetea mt-2 text-gray-400">TechBank is a blockchain product
+                    company
+                    creating
+                  </p>
+                </div>
+
+                <nuxt-link to="/products/dwallet"
+                  class="mt-8 bg-purple-600 font-ninetea hover:bg-purple-700 md:text-sm text-xs px-4 py-2 rounded-full flex items-center gap-2 mr-5 md:mr-10">
+                  View
+                  <Icon name="pixelarticons:arrow-right" class="text-white text-2xl -rotate-45" />
+                </nuxt-link>
+              </div>
+            </div>
+          </div>
+          <div class="relative overflow-hidden rounded-lg h-fit w-full shadow-lg">
+            <img src="/images/product-card.webp" alt="DBank product card background" width="100%" height="100%"
+              class="w-full h-auto object-cover rounded-lg shadow-lg" loading="eager" />
+            <div class="absolute h-full inset-0 p-1 z-10 text-white">
+              <img src="/images/dbankhome.webp" alt="DBank - Decentralized Banking Interface" width="100%" height="100%"
+                class="w-full object-cover rounded-lg shadow-lg" loading="eager" />
+              <div class="flex items-center justify-between relative w-full md:py-10 py-2 px-3">
+                <div class="">
+                  <h2 class="md:text-4xl text-xl tracking-wide font-nyx">DBANK</h2>
+                  <p class="md:text-base text-xs font-ninetea mt-2 text-gray-400">TechBank is a blockchain product
+                    company
+                    creating
+                  </p>
+                </div>
+
+                <nuxt-link to="/products/dbank"
+                  class="mt-8 bg-purple-600 font-ninetea hover:bg-purple-700 md:text-sm text-xs px-4 py-2 rounded-full flex items-center gap-2 mr-5 md:mr-10">
+                  View
+                  <Icon name="pixelarticons:arrow-right" class="text-white text-2xl -rotate-45" />
+                </nuxt-link>
+              </div>
+            </div>
+          </div>
+            </div>
         </div>
     </div>
     <!-- Technologies Section -->
     <div class="max-w-7xl mx-auto relative px-4 sm:px-6 py-28 lg:px-8 ">
         <div class="text-center">
             <h2 ref="technologiesRef" data-final-text="Technologies"
-                class="text-[40px] text-[#FFFFFF] scramble-header mx-auto mt-5 font-nyx tracking-wider leading-[102px]">
+                class="md:text-[40px] text-2xl text-[#FFFFFF] scramble-header mx-auto mt-5 font-nyx tracking-wider leading-[102px]">
                 Technologies
             </h2>
         </div>
@@ -128,10 +176,10 @@
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
             <div class="text-center">
-                <p class="text-[16px] text-[#BB83FF] mx-auto font-ninetea text-center max-w-2xl">From One Root, Many
+                <p class="md:text-[16px] text-sm text-[#BB83FF] mx-auto font-ninetea text-center max-w-2xl">From One Root, Many
                     Branches</p>
                 <h2 data-final-text="Our Connected Brands" ref="brandsRef"
-                    class="text-[40px] text-[#FFFFFF] scramble-header mx-auto -mt-5 font-nyx tracking-wider leading-[102px]">
+                    class="md:text-[40px] text-2xl text-[#FFFFFF] scramble-header mx-auto md:-mt-5 font-nyx tracking-wider leading-none">
                     Our
                     Connected Brands</h2>
             </div>
@@ -217,7 +265,7 @@
         </div>
     </div>
     <!-- Blog Section -->
-    <div class="relative">
+    <!-- <div class="relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-28 lg:px-8">
             <div class="text-center">
                 <p class="text-[16px] text-[#BB83FF] mx-auto font-ninetea text-center max-w-2xl">Techbank</p>
@@ -228,7 +276,7 @@
             </div>
             <BlogSwiper />
         </div>
-    </div>
+    </div> -->
     
 </template>
 <script setup>

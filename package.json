@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "npm run generate && gh-pages -d dist"
   },
   "dependencies": {
     "@nuxt/fonts": "^0.11.4",
@@ -23,5 +24,10 @@
     "troisjs": "^0.3.4",
     "vue": "^3.5.14",
     "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@iconify-json/logos": "^1.2.4",
+    "@iconify-json/pixelarticons": "^1.2.2",
+    "gh-pages": "^6.3.0"
   }
 }

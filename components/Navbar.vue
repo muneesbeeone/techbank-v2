@@ -50,14 +50,14 @@
             >
               Career
             </NuxtLink>
-            <div class="h-5 w-px bg-gray-700"></div>
+            <!-- <div class="h-5 w-px bg-gray-700"></div>
             <NuxtLink 
               to="/blogs" 
               class="px-2 py-1 text-sm font-medium uppercase tracking-wide border-b-2 border-transparent hover:text-purple-400 transition-all duration-200"
               :class="[$route.path.startsWith('/blogs') ? 'border-b-2 border-purple-400 text-purple-400' : 'text-white']"
             >
               Blog
-            </NuxtLink>
+            </NuxtLink> -->
           </div>
         </div>
 
@@ -135,13 +135,13 @@
         >
           Career
         </NuxtLink>
-        <NuxtLink 
+        <!-- <NuxtLink 
           to="/blogs" 
           class="block px-3 py-2 rounded-md text-base font-medium transition-all duration-300"
           :class="[$route.path.startsWith('/blogs') ? 'text-purple-400' : 'text-white hover:text-purple-400']"
         >
           Blog
-        </NuxtLink>
+        </NuxtLink> -->
         <NuxtLink
           to="/contact"
           class="block border border-white text-white px-5 py-2 rounded-full text-xs font-medium uppercase tracking-wide mt-4 text-center hover:bg-white hover:text-black transition-all duration-200"

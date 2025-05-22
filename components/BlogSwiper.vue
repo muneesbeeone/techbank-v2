@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const containerRef = ref(null)
-const swiper = useSwiper(containerRef, {
+const containerBlog = ref(null)
+const swiper = useSwiper(containerBlog, {
   slidesPerView: 3,
   spaceBetween: 10,
   loop: true,
@@ -32,7 +32,7 @@ onMounted(() => {
     </button>
     <div>
       <ClientOnly>
-        <swiper-container ref="containerRef" :init="true">
+        <swiper-container ref="containerBlog" :init="true">
           <swiper-slide class="relative overflow-hidden rounded-lg h-fit w-full shadow-lg">
             <nuxt-img src="/images/blog-bg-pattern.svg" alt="TechBank Logo" width="100%" height="100%"
               class="w-full h-auto object-cover rounded-[30px] shadow-lg" />

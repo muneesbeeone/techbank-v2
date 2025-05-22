@@ -10,5 +10,8 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxtjs/tailwindcss',
     'nuxt-swiper'
-  ]
+  ],
+  image: {
+    dir: 'public'
+  }
 })
