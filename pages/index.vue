@@ -37,10 +37,10 @@
         </div>
     </div>
     <!-- About Section -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex gap-20 lg:px-8 py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 grid-cols-1 gap-20 lg:px-8 py-28">
         <div>
-            <nuxt-img src="/images/hero-bg.svg" alt="TechBank Logo" width="100%" height="100%"
-                class="w-full h-auto object-cover rounded-lg shadow-lg" />
+            <nuxt-img src="/images/hero-bg.svg" alt="TechBank Logo"
+                class="w-fit h-fit  rounded-lg shadow-lg" />
         </div>
         <div class="flex text-block flex-col items-start">
             <h2 ref="aboutRef" data-final-text="About"
@@ -281,8 +281,8 @@ onMounted(() => {
       const y = e.clientY - rect.top - rect.height / 2
 
       gsap.to(comp, {
-        x: x * 0.4,
-        y: y * 0.4,
+        x: x * 1,
+        y: y * 1,
         duration: 2,
         ease: 'power2.out'
       })
@@ -292,7 +292,7 @@ onMounted(() => {
       gsap.to(comp, {
         x: 0,
         y: 0,
-        duration: 2,
+        duration: 0.1,
         ease: 'power2.out'
       })
     })

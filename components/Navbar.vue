@@ -1,9 +1,9 @@
 <template>
-  <nav class="bg-transparent absolute w-full text-white">
+  <nav class="md:bg-gradient-to-b md:from-black md:to-transparent fixed font-ninetea w-full text-white z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <!-- Logo and Brand -->
-        <div class="flex items-center">
+        <div class="flex items-center min-w-[180px]">
           <NuxtLink to="/" class="flex items-center">
             <nuxt-img 
               src="/images/logo.svg" 
@@ -17,51 +17,65 @@
         </div>
 
         <!-- Navigation Links -->
-        <div class="hidden md:block">
-          <div class="ml-10 flex items-baseline space-x-4">
+        <div class="hidden md:flex flex-1 justify-center">
+          <div class="flex items-center space-x-6">
             <NuxtLink 
               to="/" 
-              class="px-3 py-2 rounded-md text-sm font-medium"
-              :class="[$route.path === '/' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white']"
+              class="px-2 py-1 text-sm font-medium uppercase tracking-wide border-b-2 border-transparent hover:text-purple-400 transition-all duration-200"
+              :class="[$route.path === '/' ? 'border-b-2 border-purple-400 text-purple-400' : 'text-white']"
             >
               Home
             </NuxtLink>
+            <div class="h-5 w-px bg-gray-700"></div>
             <NuxtLink 
-              to="/about" 
-              class="px-3 py-2 rounded-md text-sm font-medium"
-              :class="[$route.path.startsWith('/about') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white']"
+              to="/products" 
+              class="px-2 py-1 text-sm font-medium uppercase tracking-wide border-b-2 border-transparent hover:text-purple-400 transition-all duration-200"
+              :class="[$route.path.startsWith('/products') ? 'border-b-2 border-purple-400 text-purple-400' : 'text-white']"
             >
-              About
+              Products
             </NuxtLink>
+            <div class="h-5 w-px bg-gray-700"></div>
             <NuxtLink 
               to="/team" 
-              class="px-3 py-2 rounded-md text-sm font-medium"
-              :class="[$route.path.startsWith('/services') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white']"
+              class="px-2 py-1 text-sm font-medium uppercase tracking-wide border-b-2 border-transparent hover:text-purple-400 transition-all duration-200"
+              :class="[$route.path.startsWith('/team') ? 'border-b-2 border-purple-400 text-purple-400' : 'text-white']"
             >
-              Team
+              Teams
             </NuxtLink>
+            <div class="h-5 w-px bg-gray-700"></div>
             <NuxtLink 
               to="/careers" 
-              class="px-3 py-2 rounded-md text-sm font-medium"
-              :class="[$route.path.startsWith('/careers') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white']"
+              class="px-2 py-1 text-sm font-medium uppercase tracking-wide border-b-2 border-transparent hover:text-purple-400 transition-all duration-200"
+              :class="[$route.path.startsWith('/careers') ? 'border-b-2 border-purple-400 text-purple-400' : 'text-white']"
             >
-              Careers
+              Career
             </NuxtLink>
+            <div class="h-5 w-px bg-gray-700"></div>
             <NuxtLink 
-              to="/contact" 
-              class="px-3 py-2 rounded-md text-sm font-medium"
-              :class="[$route.path.startsWith('/contact') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white']"
+              to="/blogs" 
+              class="px-2 py-1 text-sm font-medium uppercase tracking-wide border-b-2 border-transparent hover:text-purple-400 transition-all duration-200"
+              :class="[$route.path.startsWith('/blogs') ? 'border-b-2 border-purple-400 text-purple-400' : 'text-white']"
             >
-              Contact
+              Blog
             </NuxtLink>
           </div>
+        </div>
+
+        <!-- Contact Us Button -->
+        <div class="hidden md:flex min-w-[180px] justify-end">
+          <NuxtLink
+            to="/contact"
+            class="border border-white text-white px-5 py-1.5 rounded-full text-xs font-medium uppercase tracking-wide hover:bg-white hover:text-black transition-all duration-200"
+          >
+            Contact Us
+          </NuxtLink>
         </div>
 
         <!-- Mobile menu button -->
         <div class="md:hidden">
           <button 
             @click="isMobileMenuOpen = !isMobileMenuOpen"
-            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-all duration-300"
           >
             <span class="sr-only">Open main menu</span>
             <svg 
@@ -89,44 +103,50 @@
 
     <!-- Mobile menu -->
     <div 
-      class="md:hidden"
-      :class="{'block': isMobileMenuOpen, 'hidden': !isMobileMenuOpen}"
+      class="md:hidden transition-all duration-300 ease-in-out"
+      :class="{'opacity-100 translate-y-0': isMobileMenuOpen, 'opacity-0 -translate-y-2 pointer-events-none': !isMobileMenuOpen}"
     >
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black">
         <NuxtLink 
           to="/" 
-          class="block px-3 py-2 rounded-md text-base font-medium"
-          :class="[$route.path === '/' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white']"
+          class="block px-3 py-2 rounded-md text-base font-medium transition-all duration-300"
+          :class="[$route.path === '/' ? 'text-purple-400' : 'text-white hover:text-purple-400']"
         >
           Home
         </NuxtLink>
         <NuxtLink 
-          to="/about" 
-          class="block px-3 py-2 rounded-md text-base font-medium"
-          :class="[$route.path.startsWith('/about') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white']"
+          to="/products" 
+          class="block px-3 py-2 rounded-md text-base font-medium transition-all duration-300"
+          :class="[$route.path.startsWith('/products') ? 'text-purple-400' : 'text-white hover:text-purple-400']"
         >
-          About
+          Products
         </NuxtLink>
         <NuxtLink 
           to="/team" 
-          class="block px-3 py-2 rounded-md text-base font-medium"
-          :class="[$route.path.startsWith('/services') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white']"
+          class="block px-3 py-2 rounded-md text-base font-medium transition-all duration-300"
+          :class="[$route.path.startsWith('/team') ? 'text-purple-400' : 'text-white hover:text-purple-400']"
         >
-          Team
+          Teams
         </NuxtLink>
         <NuxtLink 
           to="/careers" 
-          class="block px-3 py-2 rounded-md text-base font-medium"
-          :class="[$route.path.startsWith('/careers') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white']"
+          class="block px-3 py-2 rounded-md text-base font-medium transition-all duration-300"
+          :class="[$route.path.startsWith('/careers') ? 'text-purple-400' : 'text-white hover:text-purple-400']"
         >
-          Careers
+          Career
         </NuxtLink>
         <NuxtLink 
-          to="/contact" 
-          class="block px-3 py-2 rounded-md text-base font-medium"
-          :class="[$route.path.startsWith('/contact') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white']"
+          to="/blogs" 
+          class="block px-3 py-2 rounded-md text-base font-medium transition-all duration-300"
+          :class="[$route.path.startsWith('/blogs') ? 'text-purple-400' : 'text-white hover:text-purple-400']"
         >
-          Contact
+          Blog
+        </NuxtLink>
+        <NuxtLink
+          to="/contact"
+          class="block border border-white text-white px-5 py-2 rounded-full text-xs font-medium uppercase tracking-wide mt-4 text-center hover:bg-white hover:text-black transition-all duration-200"
+        >
+          Contact Us
         </NuxtLink>
       </div>
     </div>

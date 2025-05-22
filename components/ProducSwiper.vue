@@ -48,11 +48,11 @@ onMounted(() => {
                   </p>
                 </div>
 
-                <button
+                <nuxt-link to="/products/dwallet"
                   class="mt-8 bg-purple-600 font-ninetea hover:bg-purple-700 md:text-sm text-xs px-4 py-2 rounded-full flex items-center gap-2 mr-5 md:mr-10">
                   View
                   <nuxt-img src="/images/arrow.svg" alt="Arrow" width="16" height="16" class="w-4 h-4" />
-                </button>
+                </nuxt-link>
               </div>
             </div>
           </swiper-slide>
@@ -71,11 +71,11 @@ onMounted(() => {
                   </p>
                 </div>
 
-                <button
+                <nuxt-link to="/products/dbank"
                   class="mt-8 bg-purple-600 font-ninetea hover:bg-purple-700 md:text-sm text-xs px-4 py-2 rounded-full flex items-center gap-2 mr-5 md:mr-10">
                   View
                   <nuxt-img src="/images/arrow.svg" alt="Arrow" width="16" height="16" class="w-4 h-4" />
-                </button>
+                </nuxt-link>
               </div>
             </div>
           </swiper-slide>
@@ -94,11 +94,11 @@ onMounted(() => {
                   </p>
                 </div>
 
-                <button
+                <nuxt-link to="/products/dwallet"
                   class="mt-8 bg-purple-600 font-ninetea hover:bg-purple-700 md:text-sm text-xs px-4 py-2 rounded-full flex items-center gap-2 mr-5 md:mr-10">
                   View
                   <nuxt-img src="/images/arrow.svg" alt="Arrow" width="16" height="16" class="w-4 h-4" />
-                </button>
+                </nuxt-link>
               </div>
             </div>
           </swiper-slide>
@@ -117,11 +117,11 @@ onMounted(() => {
                   </p>
                 </div>
 
-                <button
+                <nuxt-link to="/products/dbank"
                   class="mt-8 bg-purple-600 font-ninetea hover:bg-purple-700 md:text-sm text-xs px-4 py-2 rounded-full flex items-center gap-2 mr-5 md:mr-10">
                   View
                   <nuxt-img src="/images/arrow.svg" alt="Arrow" width="16" height="16" class="w-4 h-4" />
-                </button>
+                </nuxt-link>
               </div>
             </div>
           </swiper-slide>
