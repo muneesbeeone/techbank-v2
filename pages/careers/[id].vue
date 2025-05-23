@@ -80,7 +80,7 @@
     <DrawerModal v-model="showDrawer">
       <nuxt-img src="/images/applymodel.webp"
                         class="w-full h-full absolute top-0 left-0 object-cover" alt="job" />
-      <form class="w-full max-w-2xl mx-auto font-ninetea relative bg-transparent" @submit.prevent="handleSubmit">
+      <form class="w-full max-w-2xl mx-auto font-ninetea relative bg-transparent" @submit.prevent="submitApplication">
         <div class="text-[#BB83FF] text-lg font-ninetea mb-1">Ready to Build the Future?</div>
         <div class="text-white font-thin text-2xl font-nyx mb-6 tracking-wider">DROP YOUR DETAILS BELOW.</div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -167,7 +167,15 @@
         <div class="text-xs text-[#888] mb-4">
           The information you submit is processed in accordance with our <a href="#" class="underline text-[#BB83FF]">Privacy Policy</a>. By submitting you agree to receive communications from TechBank.
         </div>
-        <button type="submit" class="bg-button-gradient hover:bg-[#8501A6] text-white font-ninetea px-8 py-2 rounded-full flex items-center gap-2 text-base font-semibold shadow w-fit">
+        <div class="flex mb-4">
+          <NuxtTurnstile
+            v-model="turnstileToken"
+            @verify="onVerify"
+            @error="onError"
+            @expire="onExpire"
+          />
+        </div>
+        <button type="submit" class="bg-button-gradient hover:bg-[#8501A6] text-white font-ninetea px-8 py-2 rounded-full flex items-center gap-2 text-base font-semibold shadow w-fit" :disabled="!turnstileToken">
           Submit
           <Icon name="mynaui:arrow-long-up-right" class="text-white text-xl" />
         </button>
@@ -182,6 +190,7 @@ import { ref, computed } from 'vue'
 import DrawerModal from '~/components/DrawerModal.vue'
 import { useForm, useField } from 'vee-validate'
 import * as yup from 'yup'
+import axios from 'axios'
 
 const jobs = [
     {
@@ -324,5 +333,67 @@ const selectCountry = (country) => {
   selectedCountry.value = country
   countryCode.value = country.code
   isDropdownOpen.value = false
+}
+
+const turnstileToken = ref('')
+
+const onVerify = (token) => {
+  turnstileToken.value = token
+}
+
+const onError = () => {
+  turnstileToken.value = ''
+}
+
+const onExpire = () => {
+  turnstileToken.value = ''
+}
+
+const submitApplication = async () => {
+  if (!turnstileToken.value) {
+    error.value = 'Please complete the verification'
+    return
+  }
+
+  const formData = new FormData()
+  formData.append('firstName', firstName.value)
+  formData.append('lastName', lastName.value)
+  formData.append('email', email.value)
+  formData.append('phone', `${countryCode.value}${phone.value}`)
+  formData.append('currentRole', currentRole.value)
+  formData.append('experience', experience.value)
+  formData.append('message', message.value)
+  formData.append('resume', resumeFile.value)
+  formData.append('turnstileToken', turnstileToken.value)
+
+  try {
+    // First verify the Turnstile token
+    const verifyResponse = await axios.post('https://your-api.com/verify-turnstile', {
+      token: turnstileToken.value
+    })
+
+    if (!verifyResponse.data.success) {
+      error.value = 'Verification failed. Please try again.'
+      return
+    }
+
+    // If verification successful, submit the form
+    const response = await axios.post('https://your-api.com/career-application', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    })
+
+    if (response.data.success) {
+      success.value = 'Application submitted successfully!'
+      resetForm()
+      turnstileToken.value = ''
+      showDrawer.value = false
+    } else {
+      error.value = response.data.error || 'Failed to submit application. Please try again.'
+    }
+  } catch (err) {
+    error.value = err.response?.data?.error || 'An error occurred. Please try again later.'
+  }
 }
 </script>

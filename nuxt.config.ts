@@ -9,9 +9,13 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/scripts',
     '@nuxtjs/tailwindcss',
-    'nuxt-swiper'
+    'nuxt-swiper',
+    '@nuxtjs/turnstile'
   ],
   image: {
     dir: 'public'
+  },
+  turnstile: {
+    siteKey: '0x4AAAAAABeYbDKKKCOQImgl',
   }
 })

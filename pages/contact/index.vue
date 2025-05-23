@@ -101,10 +101,20 @@
                         <span v-if="messageError && messageMeta.touched" class=" text-sm mt-1">{{
                             messageError }}</span>
                     </div>
-                    <div class="">
+                    
+                    <div class="flex justify-center mb-4">
+                        <NuxtTurnstile
+                            v-model="turnstileToken"
+                            @verify="onVerify"
+                            @error="onError"
+                            @expire="onExpire"
+                        />
+                    </div>
+                    
+                    <div class="flex justify-center">
                         <button type="submit"
                             class="bg-button-gradient text-white px-8 py-3 rounded-full font-ninetea text-base flex items-center gap-2 hover:opacity-90 transition-all shadow-lg"
-                            :disabled="loading">
+                            :disabled="loading || !turnstileToken">
                             <span v-if="loading">Sending...</span>
                             <span v-else>Send Message</span>
                             <Icon v-if="!loading" name="pixelarticons:arrow-right"
@@ -247,24 +257,56 @@ const handleKeyPress = async (event) => {
 const loading = ref(false)
 const error = ref('')
 const success = ref('')
+const turnstileToken = ref('')
+
+const onVerify = (token) => {
+    turnstileToken.value = token
+}
+
+const onError = () => {
+    turnstileToken.value = ''
+}
+
+const onExpire = () => {
+    turnstileToken.value = ''
+}
 
 const onSubmit = handleSubmit(async (values) => {
+    if (!turnstileToken.value) {
+        error.value = 'Please complete the verification'
+        return
+    }
+
     loading.value = true
     error.value = ''
     success.value = ''
 
     try {
-        const response = await axios.post('http://localhost:8000/api/email-inquiry', {
+        // First verify the Turnstile token
+        const verifyResponse = await axios.post('https://your-api.com/verify-turnstile', {
+            token: turnstileToken.value
+        })
+
+        if (!verifyResponse.data.success) {
+            error.value = 'Verification failed. Please try again.'
+            loading.value = false
+            return
+        }
+
+        // If verification successful, submit the form
+        const response = await axios.post('https://your-api.com/email-inquiry', {
             name: values.name,
             email: values.email,
             subject: values.subject,
             message: values.message,
-            phone: `${values.countryCode}${values.phone}`
+            phone: `${values.countryCode}${values.phone}`,
+            turnstileToken: turnstileToken.value
         })
 
         if (response.data.message) {
             success.value = 'Message sent successfully!'
             resetForm()
+            turnstileToken.value = ''
         } else {
             error.value = response.data.error || 'Failed to send message. Please try again.'
         }
