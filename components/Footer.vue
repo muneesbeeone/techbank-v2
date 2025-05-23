@@ -10,13 +10,13 @@
                     <nuxt-img src="/images/logo-footer.svg" alt="TechBank Logo" width="100%" height="100%"
                         class="h-10 mb-4" />
                     <p class="text-white max-w-xs text-xl font-nyx">Relax, we get you and we’ve got you.</p>
-                    <a href="#" class="text-white mt-4 px-5 py-1 rounded-full ring-1 ring-white">Contact</a>
+                    <nuxt-link to="/contact" class="text-white mt-4 px-5 py-1 rounded-full ring-1 ring-white">Contact</nuxt-link>
                 </div>
                 <div>
-                    <div class="w-full flex justify-end items-center">
+                    <div class="w-full flex justify-end items-center hidden md:block">
                         <a class="text-white text-right" href="mailto:h@example.com">hr@techbank.com</a>
                     </div>
-                    <div class="grid grid-cols-2 gap-8 relative mt-8 ">
+                    <div class="grid grid-cols-2 gap-8 relative md:mt-8 ">
                         <div class="flex flex-col gap-4 justify-end">
                             <ul class="flex flex-col gap-2">
                                 <li v-for="item in navigationItems" :key="item.name">
@@ -27,8 +27,8 @@
                             </ul>
                         </div>
                         <div>
-                            <ul class="text-white flex flex-col items-end text-left gap-2">
-                                <li class="underline">Office</li>
+                            <ul class="text-white flex flex-col md:items-end items-left text-left gap-2">
+                                <li class="underline">Officea</li>
                                 <li>Infopark</li>
                                 <li>Kochi - Kerala</li>
                             </ul>
@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex justify-between items-center text-white">
+            <div class="flex justify-between flex-col md:divide-y-0 divide-y divide-[#FBFDFF26] md:flex-row items-center text-white">
                 <div class=" flex items-center gap-5">
                     <a href="#" target="_blank">
                         <Icon name="ph:linkedin-logo" class="text-white text-[100px] w-6 mx-auto" />
@@ -51,11 +51,13 @@
                         <Icon name="teenyicons:youtube-outline" class="text-white text-[100px] w-6 mx-auto" />
                     </a>
                 </div>
-                <p>&copy; {{ new Date().getFullYear() }} TechBank. All rights reserved.</p>
-                <div class="flex items-center gap-5">
+                <p class="hidden md:block">&copy; {{ new Date().getFullYear() }} TechBank. All rights reserved.</p>
+                <div class="flex items-center gap-5 -mt-5 md:mt-0 py-3 md:py-0">
                     <nuxt-link to="/privacy-policy" class="text-white">Privacy Policy</nuxt-link>
                     <nuxt-link to="/terms-and-conditions" class="text-white">Terms & Conditions</nuxt-link>
                 </div>
+                <p class="block md:hidden pt-3">&copy; {{ new Date().getFullYear() }} TechBank. All rights reserved.</p>
+
             </div>
         </div>
     </footer>

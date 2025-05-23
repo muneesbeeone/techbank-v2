@@ -103,51 +103,63 @@
 
     <!-- Mobile menu -->
     <div 
-      class="md:hidden transition-all duration-300 ease-in-out"
+      class="md:hidden w-fit transition-all duration-300 ease-in-out"
       :class="{'opacity-100 translate-y-0': isMobileMenuOpen, 'opacity-0 -translate-y-2 pointer-events-none': !isMobileMenuOpen}"
     >
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black">
-        <NuxtLink 
-          to="/" 
-          class="block px-3 py-2 rounded-md text-base font-medium transition-all duration-300"
-          :class="[$route.path === '/' ? 'text-purple-400' : 'text-white hover:text-purple-400']"
-        >
-          Home
-        </NuxtLink>
-        <NuxtLink 
-          to="/products" 
-          class="block px-3 py-2 rounded-md text-base font-medium transition-all duration-300"
-          :class="[$route.path.startsWith('/products') ? 'text-purple-400' : 'text-white hover:text-purple-400']"
-        >
-          Products
-        </NuxtLink>
-        <NuxtLink 
-          to="/team" 
-          class="block px-3 py-2 rounded-md text-base font-medium transition-all duration-300"
-          :class="[$route.path.startsWith('/team') ? 'text-purple-400' : 'text-white hover:text-purple-400']"
-        >
-          Teams
-        </NuxtLink>
-        <NuxtLink 
-          to="/careers" 
-          class="block px-3 py-2 rounded-md text-base font-medium transition-all duration-300"
-          :class="[$route.path.startsWith('/careers') ? 'text-purple-400' : 'text-white hover:text-purple-400']"
-        >
-          Career
-        </NuxtLink>
-        <!-- <NuxtLink 
-          to="/blogs" 
-          class="block px-3 py-2 rounded-md text-base font-medium transition-all duration-300"
-          :class="[$route.path.startsWith('/blogs') ? 'text-purple-400' : 'text-white hover:text-purple-400']"
-        >
-          Blog
-        </NuxtLink> -->
-        <NuxtLink
-          to="/contact"
-          class="block border border-white text-white px-5 py-2 rounded-full text-xs font-medium uppercase tracking-wide mt-4 text-center hover:bg-white hover:text-black transition-all duration-200"
-        >
-          Contact Us
-        </NuxtLink>
+      <div class="relative px-0 pt-0 pb-0">
+        <div class="absolute inset-0 w-full h-full z-0">
+          <img src="/images/mob-nav-bg.svg" alt="Mobile Nav BG" class="w-full h-full object-cover rounded-[40px]" />
+        </div>
+        <nav class="relative z-10 flex flex-col gap-2 p-6 min-w-[250px] rounded-[40px] shadow-2xl">
+          <NuxtLink 
+            to="/" 
+            class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300"
+            :class="[$route.path === '/' ? 'text-purple-300 bg-white/10' : 'text-white hover:text-purple-400']"
+          >
+            <Icon name="solar:home-2-bold-duotone" class="text-xl" />
+            Home
+          </NuxtLink>
+          <NuxtLink 
+            to="/products" 
+            class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300"
+            :class="[$route.path.startsWith('/products') ? 'text-purple-300 bg-white/10' : 'text-white hover:text-purple-400']"
+          >
+            <Icon name="solar:heart-bold-duotone" class="text-xl" />
+            Products
+          </NuxtLink>
+          <NuxtLink 
+            to="/team" 
+            class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300"
+            :class="[$route.path.startsWith('/team') ? 'text-purple-300 bg-white/10' : 'text-white hover:text-purple-400']"
+          >
+            <Icon name="solar:users-group-rounded-bold-duotone" class="text-xl" />
+            Teams
+          </NuxtLink>
+          <NuxtLink 
+            to="/careers" 
+            class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300"
+            :class="[$route.path.startsWith('/careers') ? 'text-purple-300 bg-white/10' : 'text-white hover:text-purple-400']"
+          >
+            <Icon name="solar:user-plus-bold-duotone" class="text-xl" />
+            Career
+          </NuxtLink>
+          <NuxtLink
+            to="/blog"
+            class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300"
+            :class="[$route.path.startsWith('/blog') ? 'text-purple-300 bg-white/10' : 'text-white hover:text-purple-400']"
+          >
+            <Icon name="solar:pen-2-bold-duotone" class="text-xl" />
+            Blog
+          </NuxtLink>
+          <NuxtLink
+            to="/contact"
+            class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-300"
+            :class="[$route.path.startsWith('/contact') ? 'text-purple-300 bg-white/10' : 'text-white hover:text-purple-400']"
+          >
+            <Icon name="solar:letter-bold-duotone" class="text-xl" />
+            Contact Us
+          </NuxtLink>
+        </nav>
       </div>
     </div>
   </nav>

@@ -2,35 +2,44 @@
     <!-- Hero Section -->
     <div ref="heroRef" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="relative overflow-hidden">
-            <nuxt-img src="/images/hero-bg.svg" alt="TechBank Logo" width="100%" height="100%"
-                class="w-full h-auto object-cover rounded-lg shadow-lg" />
+            <nuxt-img 
+                src="/images/hero-bg.svg" 
+                alt="TechBank Logo" 
+                width="100%" 
+                height="100%"
+                class="hidden md:block w-full h-auto object-cover rounded-lg shadow-lg" 
+            />
+            <nuxt-img 
+                src="/images/mob-hero-bg.webp" 
+                alt="TechBank Logo" 
+                width="100%" 
+                height="100%"
+                class="block md:hidden w-full h-auto object-cover rounded-lg shadow-lg" 
+            />
+              
             <div class="absolute bottom-0 w-full h-full flex flex-col items-center justify-end rounded-lg py-10">
-                <!-- <div class="absolute inset-0 w-full h-full flex  items-center justify-center bottom-0"> -->
-                <!-- <video autoplay loop muted playsinline class="h-auto">
-                        <source src="/videos/hero-comp.webm" type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video> -->
+
                 <div class="absolute w-full h-full flex items-center justify-center">
                     <img ref="compRef" src="/images/comp.gif" alt="TechBank Animation"
-                        class="w-[300px] h-auto object-cover rotate-[20deg] transition-all duration-300" />
+                        class="md:w-[300px] w-[200px] h-auto object-cover rotate-[20deg] transition-all duration-300" />
                 </div>
                 <!-- </div> -->
                 <h3 ref="headerRef"
-                    class="md:text-[94px] text-2xl text-[#000000] font-bold text-center mb-4 relative font-nyx tracking-wider leading-[102px]">
+                    class="md:text-[94px] text-2xl text-[#000000] font-bold text-center mb-4 relative font-nyx tracking-wider">
                     Engineering</h3>
                 <h3 ref="header2Ref"
-                    class="md:text-[94px] text-2xl -mt-8 text-[#000000] font-bold text-center mb-4 relative font-nyx tracking-wider leading-[102px]">
+                    class="md:text-[94px] text-2xl md:mt-10 -mt-5 text-[#000000] font-bold text-center mb-4 relative font-nyx tracking-wider">
                     The Future</h3>
-                <div class="flex items-center gap-10 max-w-xl">
-                    <span class="text-[16px]  text-[#8D8D8D] font-ninetea">Empowering Businesses, Enabling Growth
-                        TechBank’s Products for Success</span>
-                    <button
+                <div class="flex flex-col md:flex-row text-center md:text-left md:mt-5 mt-0 relative items-center md:gap-10 gap-4 max-w-xl">
+                    <span class="md:text-[16px] text-[14px]  text-[#000000] font-ninetea">Empowering Businesses, Enabling Growth
+                        TechBank's Products for Success</span>
+                    <nuxt-link to="/products"
                         class="bg-button-gradient font-ninetea text-white pl-6 pr-2 py-2 whitespace-nowrap flex items-center gap-2 rounded-full hover:bg-gray-700">
-                        Get Started
+                        View Products
                         <span class="bg-white h-8 w-8 flex items-center justify-center ml-0  rounded-full">
                             <Icon name="mynaui:arrow-long-up-right" class="text-[#8501A6] font-bold" />
                         </span>
-                    </button>
+                      </nuxt-link>
                 </div>
             </div>
 
@@ -42,7 +51,7 @@
             <nuxt-img src="/images/hero-bg.svg" alt="TechBank Logo"
                 class="w-fit h-fit  rounded-lg shadow-lg" />
         </div>
-        <div class="flex text-block flex-col items-start">
+        <div class="flex text-block flex-col md:items-start items-center">
             <h2 ref="aboutRef" data-final-text="About"
                 class="md:text-[40px] text-2xl text-[#FFFFFF] scramble-header font-bold mb-4 font-nyx tracking-wider leading-[102px]">
                 About</h2>
@@ -51,15 +60,15 @@
                 finance. We empower users with secure, transparent, and user-friendly solutions for managing assets in
                 the Web3 world.</p>
             <div class="flex divide-x divide-[#C0C0C03D]">
-                <div class="pr-8">
+                <div class="md:pr-8 pr-4">
                     <h3 class="font-nyx md:text-3xl text-xl">4</h3>
                     <p class="font-ninetea text-base text-[#C0C0C0]">Products</p>
                 </div>
-                <div class="px-8">
+                <div class="md:px-8 px-4">
                     <h3 class="font-nyx md:text-3xl text-xl">2000+</h3>
                     <p class="font-ninetea text-base text-[#C0C0C0]">Active Users</p>
                 </div>
-                <div class="pl-8">
+                <div class="md:pl-8 pl-4">
                     <h3 class="font-nyx md:text-3xl text-xl">1M+</h3>
                     <p class="font-ninetea text-base text-[#C0C0C0]">Downloads</p>
                 </div>
@@ -179,7 +188,7 @@
                 <p class="md:text-[16px] text-sm text-[#BB83FF] mx-auto font-ninetea text-center max-w-2xl">From One Root, Many
                     Branches</p>
                 <h2 data-final-text="Our Connected Brands" ref="brandsRef"
-                    class="md:text-[40px] text-2xl text-[#FFFFFF] scramble-header mx-auto md:-mt-5 font-nyx tracking-wider leading-none">
+                    class="md:text-[40px] text-2xl text-[#FFFFFF] scramble-header mx-auto mt-2 font-nyx tracking-wider leading-none">
                     Our
                     Connected Brands</h2>
             </div>
