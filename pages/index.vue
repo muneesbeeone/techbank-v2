@@ -51,10 +51,10 @@
     </div>
 
     <!-- About Section -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 grid-cols-1 gap-10 md:gap-20 lg:px-8 py-10 md:py-16 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 items-center grid-cols-1 gap-10 md:gap-20 lg:px-8 py-10 md:py-16 relative overflow-hidden">
         <div class="order-2 md:order-1">
-            <nuxt-img src="/images/hero-bg.svg" alt="TechBank Logo"
-                class="w-full h-auto rounded-lg shadow-lg" 
+            <img src="/images/about-gif.avif" alt="TechBank Logo"
+                class="max-w-[400px] h-auto rounded-lg shadow-lg" 
                 loading="lazy"
             />
         </div>
@@ -200,6 +200,12 @@
 
 <script setup lang="ts">
 import { gsap } from 'gsap'
+import { ref, computed } from 'vue'
+import { useHead } from '#imports'
+
+useHead({
+  title: 'Engineering The Future'
+})
 
 const products = ref([
     {

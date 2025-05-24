@@ -3,6 +3,50 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
 
+  app: {
+    head: {
+      title: 'TechBank',
+      titleTemplate: '%s | TechBank',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: 'TechBank - Engineering The Future. A blockchain product company creating decentralized tools to simplify digital finance.' },
+        { name: 'keywords', content: 'blockchain, cryptocurrency, digital finance, web3, decentralized finance, TechBank, Dbank, Dwallet, crypto wallet, blockchain technology' },
+        { name: 'author', content: 'TechBank' },
+        { name: 'robots', content: 'index, follow' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:title', content: 'TechBank - Engineering The Future' },
+        { property: 'og:description', content: 'TechBank - Engineering The Future. A blockchain product company creating decentralized tools to simplify digital finance.' },
+        // { property: 'og:image', content: '/images/og-image.jpg' },
+        { property: 'og:url', content: 'https://techbank.com' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: 'TechBank - Engineering The Future' },
+        { name: 'twitter:description', content: 'TechBank - Engineering The Future. A blockchain product company creating decentralized tools to simplify digital finance.' },
+        // { name: 'twitter:image', content: '/images/og-image.jpg' }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }
+      ],
+      // script: [
+      //   {
+      //     src: `https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`,
+      //     async: true
+      //   },
+      //   {
+      //     innerHTML: `
+      //       window.dataLayer = window.dataLayer || [];
+      //       function gtag(){dataLayer.push(arguments);}
+      //       gtag('js', new Date());
+      //       gtag('config', '${process.env.GOOGLE_ANALYTICS_ID}');
+      //     `
+      //   }
+      // ]
+    }
+  },
+
   css: ['assets/css/font.css'],
 
   modules: [

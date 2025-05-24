@@ -7,10 +7,8 @@
             </h2>
         </div>
         <div class="flex items-center justify-center -mt-5 relative overflow-x-hidden w-full md:px-10 pl-10 animate-fade-up" style="animation-delay: 0.2s">
-            <video loading="eager" autoplay loop muted playsinline no-controls
-                class="w-[400px] md:w-full max-w-[600px] md:ml-[200px] ml-[150px]">
-                <source src="/videos/joinwithus.webm" type="video/webm">
-            </video>
+            <img src="/images/animatedstep.webp"
+                class="w-[400px] md:w-full max-w-[600px] md:ml-[200px] ml-[150px]"/>
         </div>
         <div
             class="md:bg-gradient-to-r md:from-[#E476FF82] md:rounded-2xl md:via-[#DD56FF] md:to-[#FFFFFF] md:p-[1px] md:ml-10 md:-mt-2 -mt-20 relative animate-fade-up" style="animation-delay: 0.4s">
