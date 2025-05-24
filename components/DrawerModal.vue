@@ -35,7 +35,7 @@ onUnmounted(() => {
 const drawerClass = computed(() =>
   isMobile.value
     ? 'fixed left-0 bottom-0 w-full max-w-full h-[90vh] bg-[#2B2B2B] shadow-xl p-6 flex flex-col rounded-t-2xl overflow-y-auto'
-    : 'ml-auto w-full max-w-2xl h-full bg-[#2B2B2B] shadow-xl p-6 relative flex flex-col'
+    : 'ml-auto w-full max-w-2xl h-full bg-[#2B2B2B] shadow-xl p-6 relative flex flex-col overflow-y-auto'
 )
 </script>
 

@@ -7,22 +7,20 @@
         <div class="relative overflow-hidden">
           <nuxt-img src="/images/loader-bg.svg" alt="TechBank Logo" width="100%" height="100%"
             class="w-full h-auto object-cover" />
-          <div class="absolute w-full h-full flex flex-col items-center justify-center bottom-0 rounded-lg py-10">
-            <div>
+          <div class="absolute w-full h-full flex flex-col items-center justify-center bottom-0 rounded-lg py-6 sm:py-10">
+            <div class="w-full max-w-[280px] sm:max-w-sm">
               <h3 ref="headerRef"
-                class="text-xl text-[#A4A4A4] max-w-sm text-center mb-4 relative font-nyx tracking-widest">
+                class="text-base sm:text-xl text-[#A4A4A4] text-center mb-4 relative font-nyx tracking-widest">
                 Preparing Your Tech Experience...</h3>
-              <div class=" w-full  flex items-center justify-center">
+              <div class="w-full flex items-center justify-center">
                 <img ref="compRef" src="/images/loader.gif" alt="TechBank Animation"
-                  class="w-[100px] h-auto object-cover transition-all duration-300" />
+                  class="w-[80px] sm:w-[100px] h-auto object-cover transition-all duration-300" />
               </div>
             </div>
-            <p class="mt-2 absolute bottom-16 left-10 text-8xl font-bold text-[#A4A4A4] font-nyx">
+            <p class="mt-2 absolute bottom-8 sm:bottom-16 left-4 sm:left-10 text-5xl sm:text-8xl font-bold text-[#A4A4A4] font-nyx">
               <span ref="percentageRef" class="glitch-text">{{ loadingPercentage }}</span>
             </p>
-
           </div>
-
         </div>
       </div>
     </div>
@@ -37,6 +35,9 @@ const isLoading = ref(true)
 const loadingPercentage = ref(0)
 const percentageRef = ref<HTMLElement | null>(null)
 let progressInterval: NodeJS.Timeout | null = null
+const minLoadingTime = 2000 // Minimum loading time in milliseconds
+const startTime = Date.now()
+const isInitialLoad = ref(true)
 
 // Function to animate the percentage
 const animatePercentage = (newValue: number) => {
@@ -74,9 +75,15 @@ const completeLoading = () => {
   }
   loadingPercentage.value = 100
   animatePercentage(100)
+  
+  // Ensure minimum loading time
+  const elapsedTime = Date.now() - startTime
+  const remainingTime = Math.max(0, minLoadingTime - elapsedTime)
+  
   setTimeout(() => {
     isLoading.value = false
-  }, 200)
+    isInitialLoad.value = false
+  }, remainingTime)
 }
 
 // Function to create glitch effect
@@ -85,8 +92,8 @@ const createGlitchEffect = () => {
     gsap.timeline({ repeat: -1 })
       .to(percentageRef.value, {
         duration: 0.1,
-        x: () => gsap.utils.random(-5, 5),
-        y: () => gsap.utils.random(-2, 2),
+        x: () => gsap.utils.random(-3, 3), // Reduced movement for mobile
+        y: () => gsap.utils.random(-1, 1), // Reduced movement for mobile
         ease: "none",
         repeat: 3,
         yoyo: true
@@ -109,22 +116,30 @@ const createGlitchEffect = () => {
 }
 
 onMounted(() => {
-  startLoadingProgress()
-  createGlitchEffect()
+  if (isInitialLoad.value) {
+    startLoadingProgress()
+    createGlitchEffect()
+  } else {
+    isLoading.value = false
+  }
 
   // Listen for page navigation events
   nuxtApp.hook('page:start', () => {
-    isLoading.value = true
-    startLoadingProgress()
+    if (isInitialLoad.value) {
+      isLoading.value = true
+      startLoadingProgress()
+    }
   })
 
   nuxtApp.hook('page:finish', () => {
-    completeLoading()
+    if (isInitialLoad.value) {
+      completeLoading()
+    }
   })
 
   // Fallback to ensure loader doesn't get stuck
   setTimeout(() => {
-    if (isLoading.value) {
+    if (isLoading.value && isInitialLoad.value) {
       completeLoading()
     }
   }, 5000)
@@ -139,12 +154,9 @@ onUnmounted(() => {
 
 <style scoped>
 @keyframes bounce {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(-5px);
   }
@@ -163,6 +175,7 @@ onUnmounted(() => {
 .fade-leave-to {
   opacity: 0;
 }
+
 /* Scanline effect */
 .scanline {
   position: fixed;
@@ -201,6 +214,17 @@ onUnmounted(() => {
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .scanline {
+    background-size: 100% 2px; /* Thinner scanlines for mobile */
+  }
+  
+  .noise {
+    opacity: 0.03; /* Reduced noise opacity for mobile */
   }
 }
 </style>

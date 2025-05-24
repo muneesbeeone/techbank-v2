@@ -9,7 +9,7 @@
                 <div class="flex flex-col gap-5 items-start mb-8">
                     <nuxt-img src="/images/logo-footer.svg" alt="TechBank Logo" width="100%" height="100%"
                         class="h-10 mb-4" />
-                    <p class="text-white max-w-xs text-xl font-nyx">Relax, we get you and we’ve got you.</p>
+                    <p class="text-white max-w-xs text-xl font-nyx">Relax, we get you and we've got you.</p>
                     <nuxt-link to="/contact" class="text-white mt-4 px-5 py-1 rounded-full ring-1 ring-white">Contact</nuxt-link>
                 </div>
                 <div>
@@ -38,16 +38,16 @@
             </div>
             <div class="flex justify-between flex-col md:divide-y-0 divide-y divide-[#FBFDFF26] md:flex-row items-center text-white">
                 <div class=" flex items-center gap-5">
-                    <a href="#" target="_blank">
+                    <a href="https://linkedin.com/company/techbank" target="_blank" aria-label="Visit our LinkedIn page">
                         <Icon name="ph:linkedin-logo" class="text-white text-[100px] w-6 mx-auto" />
                     </a>
-                    <a href="#" target="_blank">
+                    <a href="https://instagram.com/techbank" target="_blank" aria-label="Visit our Instagram page">
                         <Icon name="ph:instagram-logo" class="text-white text-[100px] w-6 mx-auto" />
                     </a>
-                    <a href="#" target="_blank">
+                    <a href="https://twitter.com/techbank" target="_blank" aria-label="Visit our Twitter page">
                         <Icon name="hugeicons:new-twitter" class="text-white text-[100px] w-6 mx-auto" />
                     </a>
-                    <a href="#" target="_blank">
+                    <a href="https://youtube.com/@techbank" target="_blank" aria-label="Visit our YouTube channel">
                         <Icon name="teenyicons:youtube-outline" class="text-white text-[100px] w-6 mx-auto" />
                     </a>
                 </div>
@@ -66,8 +66,10 @@
 // Navigation items for regular users
 const navigationItems = [
     { name: 'Home', path: '/' },
+    { name: 'Products', path: '/products' },
     { name: 'Team', path: '/team' },
-    { name: 'Career', path: '/careers' }
+    { name: 'Career', path: '/careers' },
+    { name: 'Contact', path: '/contact' }
 ]
 
 

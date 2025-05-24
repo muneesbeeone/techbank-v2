@@ -1,16 +1,16 @@
 <template>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div class="bg-[#140028] rounded-2xl relative overflow-hidden flex flex-col items-center">
+        <div class="grid grid-cols-1 md:grid-cols-2  gap-10">
+            <div class="bg-[#140028] rounded-2xl relative overflow-hidden flex h-fit flex-col items-center">
                 <nuxt-img src="/images/product-bg-pattern.webp" alt="TechBank Logo" width="100%" height="100%"
                     class="w-full h-full absolute object-cover" />
                 <div
                     class="absolute -bottom-10 filter blur-[10px] left-0 w-full h-full bg-gradient-to-t from-[#fff] via-[#9334F8]  to-transparent">
                 </div>
-                <div class="relative py-20 px-10 h-full">
-                    <h4 class="text-white text-xl md:text-3xl font-nyx text-center mb-2">Let's connect and create the
+                <div class="relative md:py-20 py-10 px-10 h-fit">
+                    <h4 class="text-white text-xl md:text-3xl  font-nyx text-center mb-2">Let's connect and create the
                         next big thing in tech</h4>
-                    <div class="flex items-center justify-center absolute bottom-0 w-full px-10 py-10 right-0">
+                    <div class="flex items-center justify-center bottom-0 w-full px-10 md:py-10 right-0">
                         <video autoplay loop muted playsinline
                             class="object-contain w-full hover:skew-x-2 hover:skew-y-2 transition-all duration-1000">
                             <source src="/videos/interactive-keyboard.webm" type="video/webm">
@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <div class="w-full  p-8">
+            <div class="w-full  md:p-8">
                 <p class="text-[#BB83FF] text-sm font-ninetea mb-2 tracking-widest">BUILD THE FUTURE WITH US</p>
                 <h2 class="text-3xl md:text-4xl font-nyx text-white mb-8 tracking-wide">CONTACT US</h2>
                 <form @submit="onSubmit" class="space-y-6">
